@@ -1,0 +1,775 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'pop'; */
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    padding: 0 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.header img{
+    width: 10vh;
+}
+nav {
+    display: flex;
+    gap: 20px;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: rgb(6, 211, 6);
+    width: 100px;
+}
+.header button {
+    color: white;
+    background: rgb(6, 211, 6);
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.header button i {
+    font-size: 16px;
+}
+.home{
+    background-image: url(images/background.png);
+    height: 90vh;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* start section */
+.menu-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.menu-section h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 50px;
+    text-align: center; /* توسيط العنوان */
+    position: relative;
+}
+.menu-section h2::after { /* خط تحت العنوان */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #e44d26; /* لون مميز */
+    margin: 10px auto 0; /* توسيط الخط */
+    border-radius: 2px;
+}
+.menu-carousel-container {
+    position: relative;
+    max-width: 1200px; /* عرض أقصى للحاوية */
+    margin: 0 auto;
+    overflow: hidden; /* لإخفاء الأجزاء الزائدة من المحتوى */
+    padding: 0 50px; /* مساحة للأزرار */
+}
+.menu-items-wrapper {
+    display: flex; /* لعرض العناصر بجانب بعضها البعض */
+    overflow-x: scroll; /* لجعل المحتوى قابلًا للتمرير أفقيًا */
+    scroll-behavior: smooth; /* لجعل التمرير سلسًا عند النقر على الأسهم */
+    -webkit-overflow-scrolling: touch; /* لتحسين التمرير على أجهزة اللمس */
+    scrollbar-width: none; /* لإخفاء شريط التمرير في Firefox */
+    -ms-overflow-style: none;  /* لإخفاء شريط التمرير في IE/Edge */
+}
+/* إخفاء شريط التمرير في Chrome/Safari */
+.menu-items-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.menu-item {
+    flex: 0 0 300px; /* عرض ثابت لكل عنصر (يمكن تعديله) */
+    margin: 0 15px; /* مسافة بين العناصر */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease; /* تأثير عند التحويم */
+}
+
+.menu-item:hover {
+    transform: translateY(-5px); /* رفع العنصر قليلاً عند التحويم */
+}
+
+.menu-item img {
+    width: 100%;
+    max-height: 200px; /* ارتفاع أقصى للصورة */
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشويه */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1; /* لجعل الوصف يأخذ المساحة المتاحة */
+}
+
+.menu-item .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e44d26; /* لون السعر المميز */
+    margin-top: auto; /* لجعل السعر في الأسفل */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+/* end section */
+.container {
+    max-width: 1200px; /* أو العرض الأقصى الذي ترغبين فيه */
+    margin: 0 auto; /* لتوسيط الحاوية */
+    padding: 0 20px; /* مسافة داخلية من الجوانب */
+}
+/* قسم نبذة عنا (About Section) */
+.about-section {
+    padding: 80px 0; /* مسافة داخلية علوية وسفلية */
+    background-color: #d0fab7; /* لون خلفية خفيف */
+}
+.about-section h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 50px;
+    text-align: center; /* توسيط العنوان */
+    position: relative;
+}
+.about-section h2::after { /* خط تحت العنوان */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #e44d26; /* لون مميز */
+    margin: 10px auto 0; /* توسيط الخط */
+    border-radius: 2px;
+}
+/* تنسيق محتوى قسم نبذة عنا (النص والصورة) */
+.about-content {
+    display: flex; /* لعرض النص والصورة بجانب بعضهما */
+    flex-wrap: wrap; /* للسماح للعناصر بالنزول لأسفل في الشاشات الصغيرة */
+    gap: 40px; /* مسافة بين النص والصورة */
+    align-items: center; /* لمحاذاة العناصر عموديًا في المنتصف */
+    justify-content: center; /* لتوسيط المحتوى إذا كانت هناك مساحة إضافية */
+}
+.about-text {
+    flex: 1; /* للسماح للنص بأن يأخذ المساحة المتاحة */
+    min-width: 300px; /* الحد الأدنى لعرض النص قبل النزول لأسفل */
+    max-width: 600px; /* الحد الأقصى لعرض عمود النص */
+}
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.about-text p span {
+    font-weight: bold;
+    color: #e44d26; /* لون مميز لاسم المطعم */
+}
+.about-text strong {
+    color: #e44d26; /* لون مميز للعناوين الفرعية (مهمتنا، ما يميزنا) */
+    font-size: 20px;
+    display: block; /* لجعل العنوان يأخذ سطرًا جديدًا */
+    margin-top: 25px; /* مسافة قبل العنوان الفرعي */
+    margin-bottom: 10px;
+}
+.about-text h3 { /* تنسيق "ما يميزنا" */
+    font-size: 24px;
+    color: #e44d26;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: right; /* لضمان محاذاته لليمين */
+}
+.features-list {
+    list-style: none; /* إزالة النقاط الافتراضية */
+    padding: 0;
+    margin: 0;
+}
+.features-list li {
+    position: relative;
+    padding-right: 30px; /* مسافة للنقطة المخصصة */
+    margin-bottom: 15px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.features-list li::before { /* نقطة مخصصة (دائرة) */
+    content: '\2022'; /* رمز النقطة (يمكن استخدام رمز دائرة أو أيقونة) */
+    color: #5cb85c; /* لون النقطة (أخضر مثلاً) */
+    font-size: 24px;
+    position: absolute;
+    right: 0; /* وضع النقطة على اليمين في RTL */
+    top: 0;
+    line-height: 1; /* لتجنب تباعد الأسطر مع النقطة */
+}
+.features-list li strong { /* تنسيق العناوين داخل نقاط القائمة */
+    display: inline; /* لكي لا يأخذ السطر كله */
+    font-size: 17px; /* العودة لحجم النص الطبيعي */
+    margin-top: 0; /* إزالة الهوامش الزائدة */
+    margin-bottom: 0;
+    color: #333; /* لون عادي */
+}
+.features-list li span { /* تنسيق النص بعد العنوان في القائمة */
+    display: block; /* لجعل النص يبدأ من سطر جديد بعد العنوان */
+    margin-right: 30px; /* مسافة من اليمين لموازاة النقطة */
+    font-size: 16px;
+    color: #555;
+}
+.about-img {
+    flex: 1;
+    min-width: 300px; /* الحد الأدنى لعرض الصورة */
+    text-align: center;
+}
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+/* تنسيق قسم تواصل معنا */
+.contact-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center; /* لتوسيط العنوان H2 */
+}
+
+.contact-section h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.contact-section h2::after { /* خط تحت العنوان */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #e44d26; /* لون مميز */
+    margin: 10px auto 0; /* توسيط الخط */
+    border-radius: 2px;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap; /* للسماح للعناصر بالنزول لأسفل */
+    justify-content: center;
+    gap: 40px; /* مسافة بين عمودي معلومات الاتصال والنموذج */
+    margin-bottom: 60px;
+}
+
+.contact-info, .contact-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex: 1; /* لتوزيع المساحة بالتساوي */
+    min-width: 300px; /* الحد الأدنى للعرض قبل التكدس */
+    max-width: 500px; /* للتحكم في عرض كل عمود */
+    text-align: right; /* محاذاة النص لليمين داخل هذه الأقسام */
+}
+
+.contact-info h3, .contact-form-container h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.contact-info p i {
+    color: #e44d26; /* لون الأيقونات */
+    margin-left: 10px; /* مسافة بين الأيقونة والنص في RTL */
+    font-size: 20px;
+    vertical-align: middle; /* لمحاذاة الأيقونة مع النص */
+}
+
+/* روابط وسائل التواصل الاجتماعي */
+.social-links {
+    margin-top: 30px;
+    border-top: 2px solid #eee;
+    padding-top: 20px;
+    /* إضافة خصائص Flexbox هنا لجعل الروابط أفقية */
+    display: flex; /* اجعل الحاوية flex container */
+    justify-content: center; /* توسيط الروابط أفقياً داخل الحاوية */
+    align-items: center; /* محاذاة الروابط عمودياً (للتأكد من أنها على نفس الخط) */
+    flex-wrap: wrap; /* للسماح للروابط بالنزول لأسطر جديدة إذا كانت الشاشة صغيرة */
+}
+
+.social-links h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: none;
+    width: 100%; /* لجعل العنوان يأخذ عرضًا كاملاً ويظهر فوق الأيقونات */
+    text-align: center; /* توسيط عنوان "تابعنا على" */
+}
+
+.social-links a {
+    display: flex; /* هنا لتوسيط الأيقونة نفسها داخل الدائرة */
+    justify-content: center; /* توسيط الأيقونة أفقياً */
+    align-items: center; /* توسيط الأيقونة عمودياً */
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #e44d26;
+    color: white;
+    font-size: 22px; /* حجم الأيقونة */
+    margin: 0 8px; /* مسافة بين الدوائر الأفقية */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: #ff6a00;
+    transform: translateY(-3px);
+}
+
+/* نموذج الاتصال */
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: right; /* محاذاة اللابل لليمين */
+}
+.contact-form label {
+    display: block; /* لجعل اللابل يأخذ سطرًا خاصًا */
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fefefe;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #e44d26;
+    box-shadow: 0 0 5px rgba(228, 77, 38, 0.3);
+    outline: none; /* إزالة الخط الأزرق الافتراضي عند التركيز */
+}
+.contact-form textarea {
+    resize: vertical; /* السماح بتغيير حجم مربع النص عموديًا فقط */
+}
+.submit-button {
+    background-color: #5cb85c; /* لون زر الإرسال */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* الزر لا يأخذ العرض الكامل */
+    margin-top: 15px;
+}
+.submit-button:hover {
+    background-color: #4CAF50; /* لون أغمق عند التحويم */
+    transform: translateY(-2px);
+}
+/* الخريطة */
+.map-container {
+    margin-top: 60px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+.map-container h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: right;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+/* تنسيقات الشاشات الصغيرة (Responsive for Contact Section) */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+    .contact-section h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .contact-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contact-info, .contact-form-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+    .contact-info h3, .contact-form-container h3, .map-container h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+    }
+    .submit-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+    .map-container {
+        margin-top: 40px;
+        padding: 20px;
+    }
+    .map-container iframe {
+        height: 300px; /* تقليل ارتفاع الخريطة على الجوال */
+    }
+}/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    .header {
+        padding: 0 15px;
+        height: 8vh;
+    }
+    .header img {
+        height: 6vh;
+    }
+    nav {
+        gap: 10px;
+    }
+    nav a {
+        font-size: 0.85rem;
+        padding: 5px; /* لتقليل المسافة الزائدة */
+    }
+    .header button {
+        width: 60px;
+        height: 30px;
+    }
+    .header button i {
+        font-size: 0.9rem;
+    }
+    .home {
+        height: 70vh; /* تقليل ارتفاع قسم Home على الشاشات الصغيرة جداً */
+        padding-top: 8vh;
+    }
+
+    /* General section headings */
+    .menu-section h2,
+    .about-section h2,
+    .contact-section h2 {
+        font-size: 2rem; /* أصغر حجم للعنوان */
+        margin-bottom: 30px;
+    }
+    .menu-section h2::after,
+    .about-section h2::after,
+    .contact-section h2::after {
+        width: 40px; /* خط أقصر */
+        height: 3px;
+    }
+
+    /* Menu Section */
+    .menu-carousel-container {
+        padding: 0 10px; /* تقليل المسافة الجانبية */
+    }
+    .menu-item {
+        flex: 0 0 90%; /* جعل العنصر يأخذ عرضًا أكبر لسهولة التصفح */
+        margin: 0 10px;
+        padding: 15px;
+    }
+    .menu-item h3 {
+        font-size: 1.2rem;
+    }
+    .menu-item p {
+        font-size: 0.85rem;
+    }
+    .menu-item .price {
+        font-size: 1.1rem;
+    }
+    .arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+        padding: 8px 5px;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 40px 0;
+    }
+    .about-content {
+        flex-direction: column; /* التأكد من التكدس العمودي */
+        gap: 20px;
+    }
+    .about-text, .about-img {
+        min-width: unset; /* إزالة الحد الأدنى للعرض */
+        max-width: 100%;
+        padding: 0 15px; /* مسافة داخلية للنص والصورة */
+    }
+    .about-text p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    .about-text strong {
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
+    .about-text h3 {
+        font-size: 1.3rem;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    .features-list li {
+        font-size: 0.95rem;
+        padding-right: 25px;
+    }
+    .features-list li::before {
+        font-size: 1.3rem;
+        right: 0;
+        top: 2px;
+    }
+    .features-list li span {
+        margin-right: 25px;
+        font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 40px 0;
+    }
+    .contact-info, .contact-form-container {
+        padding: 20px;
+        min-width: unset;
+        max-width: 100%;
+    }
+    .contact-info h3, .contact-form-container h3, .map-container h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .contact-info p {
+        font-size: 0.95rem;
+    }
+    .contact-info p i {
+        font-size: 1.1rem;
+        margin-left: 8px;
+    }
+    .social-links {
+        padding-top: 15px;
+    }
+    .social-links h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .social-links a {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+        margin: 0 4px;
+    }
+    .contact-form label,
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .submit-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .map-container {
+        margin-top: 40px;
+        padding: 20px;
+    }
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up, but less than 1024px) */
+@media (min-width: 481px) and (max-width: 1023px) {
+    .header {
+        padding: 0 30px;
+        height: 9vh;
+    }
+    .header img {
+        height: 7vh;
+    }
+    nav {
+        gap: 15px;
+    }
+    nav a {
+        font-size: 1rem;
+    }
+    .header button {
+        width: 70px;
+        height: 35px;
+    }
+    .header button i {
+        font-size: 1.1rem;
+    }
+    .home {
+        height: 80vh;
+        padding-top: 9vh;
+    }
+
+    /* General section headings */
+    .menu-section h2,
+    .about-section h2,
+    .contact-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    /* Menu Section */
+    .menu-carousel-container {
+        padding: 0 30px;
+    }
+    .menu-item {
+        flex: 0 0 calc(50% - 30px); /* 2 items per row with gap */
+        margin: 0 15px; /* Keep margin */
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 70px 0;
+    }
+    .about-content {
+        gap: 30px;
+    }
+    .about-text, .about-img {
+        min-width: 45%; /* لكي يأخذ كل منهما حوالي نصف المساحة */
+        max-width: unset;
+    }
+    .about-text p {
+        font-size: 1.05rem;
+    }
+    .about-text strong {
+        font-size: 1.2rem;
+    }
+    .about-text h3 {
+        font-size: 1.4rem;
+    }
+    .features-list li {
+        font-size: 1rem;
+    }
+    .features-list li::before {
+        font-size: 1.4rem;
+    }
+    .features-list li span {
+        font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 70px 0;
+    }
+    .contact-info, .contact-form-container {
+        padding: 25px;
+        max-width: 45%; /* لكي يأخذ كل منهما حوالي نصف المساحة */
+    }
+    .contact-info h3, .contact-form-container h3, .map-container h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    .contact-info p {
+        font-size: 1rem;
+    }
+    .contact-info p i {
+        font-size: 1.2rem;
+    }
+    .social-links a {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        margin: 0 6px;
+    }
+    .submit-button {
+        padding: 13px 28px;
+        font-size: 1.05rem;
+    }
+    .map-container {
+        margin-top: 50px;
+    }
+    .map-container iframe {
+        height: 350px;
+    }
+}
